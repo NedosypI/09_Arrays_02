@@ -1,3 +1,3 @@
-# 09_Array_02
+# 09_Arrays_02
 
 Erzeugen einer HTML-Struktur mit JavaScript
