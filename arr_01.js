@@ -2,11 +2,27 @@
 
 // push() / pop()
 // push --> Daten rein ... (+)
+let arr = [];
+output(arr);
+arr.push("Ich");
+output(arr);
+arr.push("bin");
+output(arr);
+arr.push("Max");
+output(arr);
 
+// output(arr[arr.length-1]);
 
 // pop() --> Daten raus ... (-)
 
-
+output(arr.pop()); //das letzte element wird gelöscht
+output(arr);
+output(arr.pop()); 
+output(arr);
+output(arr.pop()); 
+output(arr);
+output(arr.pop()); 
+output(arr);
 
 /*
 Aufgabe:
@@ -16,7 +32,7 @@ einer HTML-Seite ausgibt:
 Verwenden Sie dafür die untenstehenden Arrays
 */
 
-const controls  = ["<", "</", ">"];
+const controls  = ["<", "</", ">"]; //"<"(open tag), "</" (schließt den Tag), ">"
 const tags = [  "html","head","head","body",
                 "h1","h1",
                 "p","p",
@@ -25,7 +41,7 @@ const tags = [  "html","head","head","body",
                 "body","html"
             ];
 
-let stack = [];
+let stack = []; //
 
 // Modul: HTML-Synthese | Test
 output(getHTML());
@@ -34,7 +50,8 @@ function getHTML() {
     let htmlStr = "";
 
     for (let i = 0; i < tags.length; i++) {
-        if (isOpenElement(tags[i])) { 
+        // if (isOpenElement(tags[i])) 
+        if(false) {  //mit false alle schließenden Tags anzeigen, mit true ale öffnenden 
             htmlStr += getElement(tags[i],"open");
         } else {
             htmlStr += getElement(tags[i],"close");
@@ -47,24 +64,24 @@ function getHTML() {
 function isOpenElement(tag) {
     
     // tag liegt nicht oben! --> neu, open
-    let cond = (tag != stack[stack.length-1])  
+    let cond = (tag != stack[stack.length-1])  // test auf ungleichheit
     
     if (cond) {  // open
         stack.push(tag);
-        // output(stack);
+        output(stack);
         return true;
     } else {  // close
         stack.pop();
-        // output(stack);
+        output(stack);
         return false;
     }
      
 }
 
 // Modul: Zusammenbau der Elements: <tagStr> --> Tests:
-// output(getElement(tags[1],"open"));
-// output(getElement(tags[1],"close"));
-// output(getElement(tags[1]));
+output(getElement(tags[1],"open"));
+output(getElement(tags[1],"close"));
+output(getElement(tags[1]));
 function getElement(tag,op) {
     switch (op) {
         case "open": 
